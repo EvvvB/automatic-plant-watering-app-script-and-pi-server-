@@ -17,17 +17,13 @@ def main():
         percentage = voltage_to_moisture(voltage)
 
     reqParams = { 'seconds' : 15 }
-    reqTwo = { 'seconds' : 6 } 
 
     reqUrl = 'https://automatic-watering.herokuapp.com/api/watertime'
-    #reqUrl = 'http://localhost:5000/api/watertime'
+
+    #water after percentage is lower than 15
     if percentage < 15:
         req = requests.post(reqUrl, data = reqParams)
-    #elif percentage < 50:
-    #    req = requests.post(reqUrl, data = reqTwo)
-    #print(percentage)
-    #if percentage < 10:
-    #print("Applied voltage: %.2f" % (value / 1023.0 * 3.3) )
+    
     print(percentage)
 
 def voltage_to_moisture(voltage):
